@@ -1,32 +1,31 @@
 function computerPlay() {
-    const outcomes = ['rock', 'paper', 'scissors']
-    return outcomes[Math.floor(Math.random() * outcomes.length)]
+    const items = ['rock', 'paper', 'scissors']
+    return items[Math.floor(Math.random() * items.length)]
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return 'It\'s a tie!'
+    switch (true) {
+        case playerSelection === computerSelection:
+            console.log('It\'s a tie!')
+            return 'tie'
+        case playerSelection === 'rock' && computerSelection === 'scissors':
+        case playerSelection === 'paper' && computerSelection === 'rock':
+        case playerSelection === 'scissors' && computerSelection === 'paper':
+            console.log(`You won! ${playerSelection} beats ${computerSelection}`)
+            return 'win'
+        default:
+            console.log(`You lost! ${computerSelection} beats ${playerSelection}`)
+            return 'lose'
     }
-    else {
-        if (playerSelection === 'rock') {
-            if (computerSelection === 'scissors') {
-                return 'You won! Rock beats Scissors'
-            }
-            return 'You lost! Scissors beats Rock'
+}
 
-        }
-        else if (playerSelection === 'paper') {
-            if (computerSelection === 'rock') {
-                return 'You won! Paper beats Rock'
-            }
-            return 'You lost! Scissors beats Paper'
+function game() {
+    // keep track of score using variables
 
-        }
-        else if (playerSelection === 'scissors') {
-            if (computerSelection === 'paper') {
-                return 'You won! Scissors beats Paper'
-            }
-            return 'You lost! Rock beats Scissors'
-        }
-    }
+    // while neither player has reached 5 points...
+    // ask player for which item to throw
+    // play a round
+    // update score depending on results from function
+
+    // after game is over, display winner
 }
