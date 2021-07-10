@@ -11,21 +11,30 @@ function playRound(playerSelection, computerSelection) {
         case playerSelection === 'rock' && computerSelection === 'scissors':
         case playerSelection === 'paper' && computerSelection === 'rock':
         case playerSelection === 'scissors' && computerSelection === 'paper':
-            console.log(`You won! ${playerSelection} beats ${computerSelection}`)
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`)
             return 'win'
         default:
-            console.log(`You lost! ${computerSelection} beats ${playerSelection}`)
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
             return 'lose'
     }
 }
 
 function game() {
-    // keep track of score using variables
+    let playerScore = 0
+    let cpuScore = 0
 
-    // while neither player has reached 5 points...
-    // ask player for which item to throw
-    // play a round
-    // update score depending on results from function
+    while (playerScore < 5 && cpuScore < 5) {
+        const playerMove = prompt('Choose your move:').toLowerCase()
+        const result = playRound(playerMove, computerPlay())
 
-    // after game is over, display winner
+        if (result === 'win') playerScore++
+        else if (result === 'lose') cpuScore++
+
+        console.log('Player score: ' + playerScore)
+        console.log('CPU score: ' + cpuScore)
+    }
+
+    console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
 }
+
+game()
