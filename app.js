@@ -24,7 +24,7 @@ function game() {
     let cpuScore = 0
 
     while (playerScore < 5 && cpuScore < 5) {
-        const playerMove = prompt('Choose your move:').toLowerCase()
+        const playerMove = ''
         const result = playRound(playerMove, computerPlay())
 
         if (result === 'win') playerScore++
