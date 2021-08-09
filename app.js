@@ -23,18 +23,25 @@ function game() {
     let playerScore = 0
     let cpuScore = 0
 
-    while (playerScore < 5 && cpuScore < 5) {
-        const playerMove = ''
-        const result = playRound(playerMove, computerPlay())
+    const buttons = document.querySelectorAll('#buttons button')
+    for (let button of buttons) {
+        button.addEventListener('click', function play() {
+            const playerMove = button.id
+            if (playerScore < 5 && cpuScore < 5) {
+                const result = playRound(playerMove, computerPlay())
 
-        if (result === 'win') playerScore++
-        else if (result === 'lose') cpuScore++
+                if (result === 'win') playerScore++
+                else if (result === 'lose') cpuScore++
 
-        console.log('Player score: ' + playerScore)
-        console.log('CPU score: ' + cpuScore)
+                console.log('Player score: ' + playerScore)
+                console.log('CPU score: ' + cpuScore)
+            }
+            else {
+                console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
+                button.removeEventListener('click', play)
+            }
+        })
     }
-
-    console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
 }
 
 game()
