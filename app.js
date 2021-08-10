@@ -1,3 +1,11 @@
+let playerScore = 0
+let cpuScore = 0
+
+const buttons = document.querySelectorAll('#buttons button')
+for (let button of buttons) {
+    button.addEventListener('click', game)
+}
+
 function computerPlay() {
     const items = ['rock', 'paper', 'scissors']
     return items[Math.floor(Math.random() * items.length)]
@@ -19,29 +27,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function updateScore(result) {
+    if (result === 'win') playerScore++
+    else if (result === 'lose') cpuScore++
+
+    console.log('Player score: ' + playerScore)
+    console.log('CPU score: ' + cpuScore)
+}
+
 function game() {
-    let playerScore = 0
-    let cpuScore = 0
-
-    const buttons = document.querySelectorAll('#buttons button')
-    for (let button of buttons) {
-        button.addEventListener('click', function play() {
-            const playerMove = button.id
-            if (playerScore < 5 && cpuScore < 5) {
-                const result = playRound(playerMove, computerPlay())
-
-                if (result === 'win') playerScore++
-                else if (result === 'lose') cpuScore++
-
-                console.log('Player score: ' + playerScore)
-                console.log('CPU score: ' + cpuScore)
-            }
-            else {
-                console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
-                button.removeEventListener('click', play)
-            }
-        })
+    const playerMove = this.id
+    const result = playRound(playerMove, computerPlay())
+    updateScore(result)
+    if (playerScore >= 5 || cpuScore >= 5) {
+        endGame()
     }
 }
 
-game()
+function endGame() {
+    console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
+    for (let button of buttons) {
+        button.removeEventListener('click', game)
+    }
+}
+
