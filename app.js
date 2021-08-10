@@ -31,8 +31,8 @@ function updateScore(result) {
     if (result === 'win') playerScore++
     else if (result === 'lose') cpuScore++
 
-    console.log('Player score: ' + playerScore)
-    console.log('CPU score: ' + cpuScore)
+    const liveScore = document.querySelector('h2 span')
+    liveScore.innerText = `${playerScore} - ${cpuScore}`
 }
 
 function game() {
