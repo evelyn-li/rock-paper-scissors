@@ -6,12 +6,31 @@ for (let button of buttons) {
     button.addEventListener('click', game)
 }
 
+function game() {
+    const result = playRound(this.className, computerPlay())
+    updateScore(result)
+    if (playerScore >= 5 || cpuScore >= 5) {
+        endGame()
+    }
+}
+
 function computerPlay() {
     const items = ['rock', 'paper', 'scissors']
     return items[Math.floor(Math.random() * items.length)]
 }
 
+function displayMoves(playerSelection, computerSelection) {
+    const playerClasses = document.querySelector('#player .image').classList
+    playerClasses.remove(playerClasses.item(1))
+    playerClasses.add(playerSelection)
+
+    const cpuClasses = document.querySelector('#computer .image').classList
+    cpuClasses.remove(cpuClasses.item(1))
+    cpuClasses.add(computerSelection)
+}
+
 function playRound(playerSelection, computerSelection) {
+    displayMoves(playerSelection, computerSelection)
     switch (true) {
         case playerSelection === computerSelection:
             console.log('It\'s a tie!')
@@ -33,15 +52,6 @@ function updateScore(result) {
 
     const liveScore = document.querySelector('h2 span')
     liveScore.innerText = `${playerScore} - ${cpuScore}`
-}
-
-function game() {
-    const playerMove = this.id
-    const result = playRound(playerMove, computerPlay())
-    updateScore(result)
-    if (playerScore >= 5 || cpuScore >= 5) {
-        endGame()
-    }
 }
 
 function endGame() {
