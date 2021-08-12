@@ -1,4 +1,4 @@
-body, main, .move-display, #scoreboard {
+body, main, .move-display, #scoreboard, .image {
     display: flex;
     flex-direction: column;
 }
@@ -21,9 +21,8 @@ header {
 #display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);
     height: 100%;
-    margin-top: 9vh;
+    margin-top: 7vh;
 }
 
 section div {
@@ -32,21 +31,38 @@ section div {
 
 .move-display {
     align-items: center;
-    background-color: white;
     height: 100%;
 }
 
-.icon-wrapper {
-    max-height: 50vh;
-    max-width: 80%;
-    background-color: aqua;
+.image {
+    box-sizing: border-box;
+    background-color: #FFF5F4;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    min-height: 85%;
+    width: 70%;
+    margin-top: 1.5vh;
+    
+    border-color: #ffaf2d;
+    border-style: solid;
+    border-radius: 7px;
+    box-shadow: 1px 1px 5px 5px #ffaf2d;
+}
+
+h2 {
+    font-family: 'Bangers', serif;
+    color: #ffaf2d;
+    text-shadow: 2px 2px 4px #AA22E7;
+}
+
+.move-display h2 {
+    font-size: 35px;
 }
 
 #scoreboard h2 {
-    color: #ffaf2d;
     font-size: 45px;
-    text-shadow: 2px 2px 4px #AA22E7;
-    font-family: 'Bangers', serif;
 }
 
 span {
@@ -77,15 +93,22 @@ button:hover {
     transform: scale(1.2);
 }
 
-#rock {
+.rock {
     background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png);
+}
+.paper {
+    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400143/rock-paper-scissors/paper.png);
+}
+.scissors {
+    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400144/rock-paper-scissors/scissors.png);
+}
+
+#buttons .rock {
     background-color: #EB3391;
 }
-#paper {
-    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400143/rock-paper-scissors/paper.png);
+#buttons .paper {
     background-color: #F9CA00;
 }
-#scissors {
-    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400144/rock-paper-scissors/scissors.png);
+#buttons .scissors {
     background-color: #01CAE6;
 }
