@@ -27,6 +27,7 @@ header {
 
 section div {
     text-align: center;
+    align-items: center;
 }
 
 .move-display {
@@ -44,15 +45,25 @@ section div {
     min-height: 85%;
     width: 70%;
     margin-top: 1.5vh;
-    
+
     border-color: #ffaf2d;
     border-style: solid;
     border-radius: 7px;
     box-shadow: 1px 1px 5px 5px #ffaf2d;
 }
 
+.rock {
+    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png);
+}
+.paper {
+    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400143/rock-paper-scissors/paper.png);
+}
+.scissors {
+    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400144/rock-paper-scissors/scissors.png);
+}
+
 h2 {
-    font-family: 'Bangers', serif;
+    font-family: 'Bangers', sans-serif;
     color: #ffaf2d;
     text-shadow: 2px 2px 4px #AA22E7;
 }
@@ -61,12 +72,42 @@ h2 {
     font-size: 35px;
 }
 
+#scoreboard {
+    justify-content: space-around;
+}
+
 #scoreboard h2 {
     font-size: 45px;
 }
 
 span {
     display: block;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.2rem;
+    border-width: 4px;
+    border-style: solid;
+    width: 60%;
+}
+
+.default {
+    border-color: #01CAE6;
+    color: #01CAE6;
+}
+
+.win {
+    border-color: rgb(0, 226, 0);
+    color: rgb(0, 226, 0);
+}
+.tie {
+    border-color: #F9CA00;
+    color: #F9CA00;
+}
+.lose {
+    border-color: rgb(255, 36, 36);
+    color: rgb(255, 36, 36);
 }
 
 #buttons {
@@ -91,16 +132,6 @@ button {
 
 button:hover {
     transform: scale(1.2);
-}
-
-.rock {
-    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png);
-}
-.paper {
-    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400143/rock-paper-scissors/paper.png);
-}
-.scissors {
-    background-image: url(https://res.cloudinary.com/itsellej/image/upload/v1533400144/rock-paper-scissors/scissors.png);
 }
 
 #buttons .rock {

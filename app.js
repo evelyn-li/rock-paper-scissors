@@ -33,17 +33,26 @@ function playRound(playerSelection, computerSelection) {
     displayMoves(playerSelection, computerSelection)
     switch (true) {
         case playerSelection === computerSelection:
-            console.log('It\'s a tie!')
+            displayResult('tie', 'It\'s a tie!')
             return 'tie'
         case playerSelection === 'rock' && computerSelection === 'scissors':
         case playerSelection === 'paper' && computerSelection === 'rock':
         case playerSelection === 'scissors' && computerSelection === 'paper':
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+            displayResult('win', 'You win!')
             return 'win'
         default:
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
+            displayResult('lose', 'You lose!')
             return 'lose'
     }
+}
+
+function displayResult(result, msg) {
+    const display = document.querySelector('#result')
+    display.innerText = msg
+
+    const classes = display.classList
+    classes.remove(classes.item(0))
+    classes.add(result)
 }
 
 function updateScore(result) {
