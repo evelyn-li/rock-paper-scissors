@@ -64,9 +64,34 @@ function updateScore(result) {
 }
 
 function endGame() {
-    console.log('Game over! ' + ((playerScore > cpuScore) ? 'You won the game!' : 'You lost the game!'))
     for (let button of buttons) {
         button.removeEventListener('click', game)
     }
+    setTimeout(openModal, 500)
 }
 
+function openModal() {
+    const modal = document.querySelector('.modal')
+    const modalContent = document.querySelector('.modal-content')
+
+    showModal(modal, modalContent)
+    document.querySelector('#final-result').append((playerScore > cpuScore) ? 'won!' : 'lost!')
+    document.querySelector('#restart-btn').addEventListener('click', () => {
+        location.reload()
+    })
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('visible')
+    })
+    for (let button of buttons) {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation()
+            showModal(modal, modalContent)
+        })
+    }
+}
+
+function showModal(modal, modalContent) {
+    modal.classList.add('visible')
+    modalContent.classList.add('visible')
+}

@@ -116,7 +116,7 @@ h3 {
     margin-bottom: 7vh;
 }
 
-button {
+#buttons button {
     background-size: cover;
     width: 6vw;
     height: 6vw;
@@ -130,7 +130,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#buttons button:hover {
     transform: scale(1.2);
 }
 
@@ -142,4 +142,65 @@ button:hover {
 }
 #buttons .scissors {
     background-color: #01CAE6;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 35%;
+    height: 50%;
+    background-color: #47077C;
+
+    border-color: #01CAE6;
+    border-style: solid;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 5px #01CAE6;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content, #restart-btn {
+    border-style: solid;
+    border-radius: 7px;
+}
+
+#final-result {
+    font-size: 3rem;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#restart-btn {
+    background-color: #00bcd4;
+    padding: 1em;
+    font-size: 1.5rem;
+    border-color: #B0CDFFFF;
+    cursor: pointer;
+    box-shadow: 0 0 4px 1px #B0CDFFFF;
+}
+#restart-btn:hover {
+    background-color: #5dc8d6;
+    border-color: #B0CDFFFF;
+}
+
+.visible {
+    display: flex;
 }
